@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Júlio César Oliveira — Engenheiro & Web Developer</title>
+  <meta name="description" content="Engenheiro eletrotécnico e desenvolvedor web em Portugal. ENGTEC, W3BD3V, Crescer Saudável — projetos em engenharia, digital e integração de IA." />
+  <link rel="canonical" href="https://juliocesar.pt/" />
+  <meta name="author" content="Júlio César Oliveira" />
+  <meta name="theme-color" content="#0a1f24" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:locale" content="pt_PT" />
+  <meta property="og:url" content="https://juliocesar.pt/" />
+  <meta property="og:title" content="Júlio César Oliveira — Engenheiro & Web Developer" />
+  <meta property="og:description" content="Engenheiro eletrotécnico e desenvolvedor web. Projetos em engenharia, digital e integração de IA — Portugal." />
+  <meta property="og:image" content="https://juliocesar.pt/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Júlio César Oliveira — Engenheiro e Web Developer" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Júlio César Oliveira — Engenheiro & Web Developer" />
+  <meta name="twitter:description" content="Engenheiro eletrotécnico e desenvolvedor web. Projetos em engenharia, digital e integração de IA — Portugal." />
+  <meta name="twitter:image" content="https://juliocesar.pt/assets/og-image.jpg" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/avatar-216.webp" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Júlio César Oliveira",
+    "url": "https://juliocesar.pt/",
+    "image": "https://juliocesar.pt/assets/avatar.webp",
+    "jobTitle": ["Engenheiro Eletrotécnico", "Web Developer"],
+    "email": "juliocesar.eng@outlook.pt",
+    "telephone": "+351936293272",
+    "knowsAbout": ["Engenharia Eletrotécnica", "Desenvolvimento Web", "Integração de IA"],
+    "sameAs": [
+      "https://www.linkedin.com/in/juliocesareng",
+      "https://engtec.pt",
+      "https://w3bd3v.digital",
+      "https://crescer-saudavel.pt"
+    ],
+    "worksFor": [
+      { "@type": "Organization", "name": "ENGTEC", "url": "https://engtec.pt" },
+      { "@type": "Organization", "name": "W3BD3V", "url": "https://w3bd3v.digital" }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a1f24;
+      --surface:   #112830;
+      --border:    rgba(255,255,255,0.08);
+      --gold:      #c9a84c;
+      --gold-dim:  #a07a30;
+      --text:      #e8eaf0;
+      --muted:     #6b7a90;
+      --radius:    14px;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,168,76,0.09) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 80% 90%, rgba(0,120,130,0.20) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: max(60px, env(safe-area-inset-top)) 20px max(80px, env(safe-area-inset-bottom));
+      padding-left: max(20px, env(safe-area-inset-left));
+      padding-right: max(20px, env(safe-area-inset-right));
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 108px;
+      height: 108px;
+      margin-bottom: 22px;
+    }
+
+    .avatar-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: conic-gradient(var(--gold), var(--gold-dim), var(--gold));
+      animation: spin 8s linear infinite;
+    }
+
+    .avatar-wrap::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: conic-gradient(transparent 60%, rgba(201,168,76,0.15) 80%, transparent 100%);
+      animation: spin 8s linear infinite reverse;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .avatar {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--bg);
+    }
+
+    .name {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 5vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    .name span { color: var(--gold); }
+
+    .title {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .bio {
+      max-width: 420px;
+      margin: 14px 0 24px;
+      padding: 0 8px;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: center;
+      animation: fadeUp 0.7s 0.08s ease both;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+
+    .badge {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.35);
+      background: rgba(201,168,76,0.06);
+      padding: 5px 14px;
+      border-radius: 100px;
+      backdrop-filter: blur(4px);
+      cursor: help;
+    }
+
+    .badge-hint {
+      max-width: 420px;
+      margin-bottom: 32px;
+      padding: 0 12px;
+      font-size: 0.72rem;
+      line-height: 1.5;
+      color: rgba(107, 122, 144, 0.9);
+      text-align: center;
+      animation: fadeUp 0.7s 0.12s ease both;
+    }
+
+    .badge-hint abbr {
+      text-decoration: underline dotted;
+      text-underline-offset: 2px;
+      cursor: help;
+    }
+
+    .links {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .link-group-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 8px;
+      margin-bottom: -2px;
+      padding-left: 4px;
+    }
+
+    .link-group-label--contact { margin-top: 8px; }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(201,168,76,0.04), transparent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .link-btn:hover {
+      border-color: rgba(201,168,76,0.4);
+      background: #122e35;
+      transform: translateY(-1px);
+    }
+
+    .link-btn:hover::before { opacity: 1; }
+    .link-btn:active { transform: translateY(0); }
+
+    .link-btn .icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+
+    .link-btn .info { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+    .link-btn .info strong { font-family: 'Syne', sans-serif; font-size: 0.92rem; font-weight: 700; }
+    .link-btn .info small { font-size: 0.75rem; color: var(--muted); }
+
+    .link-btn .arrow {
+      color: var(--muted);
+      font-size: 0.85rem;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .link-btn:hover .arrow { transform: translateX(3px); color: var(--gold); }
+
+    .ic-engtec   { background: rgba(30,80,180,0.18); }
+    .ic-web      { background: rgba(80,180,140,0.15); }
+    .ic-saudavel { background: rgba(80,180,80,0.15); }
+    .ic-linkedin { background: rgba(10,102,194,0.2); }
+    .ic-wa       { background: rgba(37,211,102,0.15); }
+    .ic-email    { background: rgba(201,168,76,0.15); }
+
+    .anim-label-1 { animation: fadeUp 0.6s 0.14s ease both; }
+    .anim-label-2 { animation: fadeUp 0.6s 0.42s ease both; }
+    .anim-link-1  { animation: fadeUp 0.6s 0.18s ease both; }
+    .anim-link-2  { animation: fadeUp 0.6s 0.24s ease both; }
+    .anim-link-3  { animation: fadeUp 0.6s 0.30s ease both; }
+    .anim-link-4  { animation: fadeUp 0.6s 0.46s ease both; }
+    .anim-link-5  { animation: fadeUp 0.6s 0.52s ease both; }
+    .anim-link-6  { animation: fadeUp 0.6s 0.58s ease both; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .footer {
+      margin-top: 52px;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-align: center;
+      animation: fadeUp 0.6s 0.65s ease both;
+    }
+
+    .footer a { color: var(--gold-dim); text-decoration: none; }
+    .footer a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div class="avatar-wrap">
+      <picture>
+        <source srcset="assets/avatar-216.webp" type="image/webp" />
+        <source srcset="assets/avatar.webp" type="image/webp" />
+        <source srcset="assets/avatar.jpg" type="image/jpeg" />
+        <img
+          class="avatar"
+          src="assets/avatar.svg"
+          alt="Júlio César Oliveira"
+          width="108"
+          height="108"
+          decoding="async"
+        />
+      </picture>
+    </div>
+    <h1 class="name">Júlio César <span>Oliveira</span></h1>
+    <p class="title">Engenheiro &nbsp;·&nbsp; Web Developer</p>
+  </header>
+
+  <p class="bio">
+    Engenheiro eletrotécnico e desenvolvedor web em Portugal. Lidero projetos em
+    instalações elétricas, produto digital e integração de IA nos meus três eixos
+    profissionais abaixo.
+  </p>
+
+  <div class="badges" role="list" aria-label="Competências e certificações">
+    <span class="badge" role="listitem" title="Técnico Responsável pela Exploração de Instalações Elétricas (ENAC)">TREIE</span>
+    <span class="badge" role="listitem" title="Técnico Responsável de Segurança Contra Incêndios em Edifícios">SCIE</span>
+    <span class="badge" role="listitem" title="Desenvolvimento de sites, apps e produto digital">Web Dev</span>
+    <span class="badge" role="listitem" title="Integração de ferramentas e fluxos com inteligência artificial">Integrador IA</span>
+  </div>
+  <p class="badge-hint">
+    <abbr title="Técnico Responsável pela Exploração de Instalações Elétricas">TREIE</abbr> e
+    <abbr title="Técnico Responsável de Segurança Contra Incêndios em Edifícios">SCIE</abbr>
+    — certificações ENAC em instalações elétricas e segurança contra incêndios.
+  </p>
+
+  <nav class="links" aria-label="Projetos e contacto">
+
+    <span class="link-group-label anim-label-1">Projetos</span>
+
+    <a class="link-btn anim-link-1" href="https://engtec.pt" target="_blank" rel="noopener noreferrer" aria-label="ENGTEC — Engenharia Eletrotécnica, abre em nova janela">
+      <div class="icon ic-engtec" aria-hidden="true">
+        <img src="https://www.google.com/s2/favicons?domain=engtec.pt&amp;sz=32" width="24" height="24" alt="" loading="lazy" style="border-radius:4px;" onerror="this.outerHTML='⚡'" />
+      </div>
+      <div class="info">
+        <strong>ENGTEC</strong>
+        <small>Engenharia Eletrotécnica</small>
+      </div>
+      <span class="arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-btn anim-link-2" href="https://w3bd3v.digital" target="_blank" rel="noopener noreferrer" aria-label="W3BD3V — Desenvolvimento Web e Digital, abre em nova janela">
+      <div class="icon ic-web" aria-hidden="true">
+        <img src="https://www.google.com/s2/favicons?domain=w3bd3v.digital&amp;sz=32" width="24" height="24" alt="" loading="lazy" style="border-radius:4px;" onerror="this.outerHTML='💻'" />
+      </div>
+      <div class="info">
+        <strong>W3BD3V</strong>
+        <small>Desenvolvimento Web &amp; Digital</small>
+      </div>
+      <span class="arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-btn anim-link-3" href="https://crescer-saudavel.pt" target="_blank" rel="noopener noreferrer" aria-label="Crescer Saudável — Engenharia e Paternidade, abre em nova janela">
+      <div class="icon ic-saudavel" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3" fill="#7bc67e"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#7bc67e" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="info">
+        <strong>Crescer Saudável</strong>
+        <small>Engenharia e Paternidade</small>
+      </div>
+      <span class="arrow" aria-hidden="true">›</span>
+    </a>
+
+    <span class="link-group-label link-group-label--contact anim-label-2">Contacto</span>
+
+    <a class="link-btn anim-link-4" href="https://www.linkedin.com/in/juliocesareng" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn — juliocesareng, abre em nova janela">
+      <div class="icon ic-linkedin" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#0a66c2" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM3.56 20.45h3.56V9H3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+      </div>
+      <div class="info">
+        <strong>LinkedIn</strong>
+        <small>juliocesareng</small>
+      </div>
+      <span class="arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-btn anim-link-5" href="https://wa.me/351936293272" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp — +351 936 293 272, abre em nova janela">
+      <div class="icon ic-wa" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#25d366" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15s-.77.97-.94 1.17c-.17.2-.35.22-.65.07a8.17 8.17 0 01-2.4-1.48 9.03 9.03 0 01-1.66-2.06c-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.01-1.04 2.47s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zm-5.47 7.47h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.73.98 1-3.64-.24-.37A9.86 9.86 0 012 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10z"/></svg>
+      </div>
+      <div class="info">
+        <strong>WhatsApp</strong>
+        <small>+351 936 293 272</small>
+      </div>
+      <span class="arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link-btn anim-link-6" href="/cdn-cgi/l/email-protection#0d67786164626e687e6c7f2368636a4d62787961626266237d79" aria-label="Enviar email para juliocesar.eng@outlook.pt">
+      <div class="icon ic-email" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#c9a84c" stroke-width="1.8"/><path d="M3 7l9 7 9-7" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <div class="info">
+        <strong>Email</strong>
+        <small><span class="__cf_email__" data-cfemail="2b415e474244484e584a59054e454c6b445e5f47444440055b5f">[email&#160;protected]</span></small>
+      </div>
+      <span class="arrow" aria-hidden="true">›</span>
+    </a>
+
+  </nav>
+
+  <footer class="footer">
+    © 2026 Júlio César Oliveira &nbsp;·&nbsp; <a href="https://engtec.pt">engtec.pt</a>
+  </footer>
+
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
