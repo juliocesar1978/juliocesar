@@ -505,6 +505,52 @@ V0.005 — 2026-11-04 Exponor Eléctrica Edition
     .ic-wa       { background: rgba(37,211,102,0.15); }
     .ic-email    { background: rgba(201,168,76,0.15); }
 
+    /* Botão Expansível: Seta centrada para outros projetos */
+    .btn-toggle-more {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 7px 16px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      color: var(--gold);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s, color 0.2s;
+    }
+
+    .btn-toggle-more:hover {
+      background: rgba(201, 168, 76, 0.1);
+      border-color: rgba(201, 168, 76, 0.35);
+      color: var(--gold-light);
+    }
+
+    .btn-toggle-more:active {
+      transform: translateY(1px);
+    }
+
+    .btn-toggle-more .toggle-arrow {
+      color: var(--gold);
+      display: block;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-toggle-more.is-expanded .toggle-arrow {
+      transform: rotate(180deg);
+    }
+
+    .collapse-group {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      width: 100%;
+    }
+
+    .collapse-group[hidden] {
+      display: none;
+    }
+
     .anim-vcard   { animation: fadeUp 0.6s 0.13s ease both; }
     .anim-label-1 { animation: fadeUp 0.6s 0.16s ease both; }
     .anim-link-1  { animation: fadeUp 0.6s 0.19s ease both; }
@@ -715,6 +761,12 @@ V0.005 — 2026-11-04 Exponor Eléctrica Edition
       .links {
         gap: 9px;
       }
+      .btn-toggle-more {
+        padding: 6px 12px;
+      }
+      .collapse-group {
+        gap: 9px;
+      }
       .link-btn {
         padding: 12px 15px;
         gap: 11px;
@@ -843,29 +895,39 @@ V0.005 — 2026-11-04 Exponor Eléctrica Edition
       <span class="arrow" aria-hidden="true">›</span>
     </a>
 
-    <!-- 4º Card: Crescer Saudável -->
-    <a class="link-btn anim-link-4" href="https://crescer-saudavel.pt" target="_blank" rel="noopener noreferrer" aria-label="Crescer Saudável — Engenharia e Paternidade, abre em nova janela">
-      <div class="icon ic-saudavel" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3" fill="#7bc67e"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#7bc67e" stroke-width="2" stroke-linecap="round"/></svg>
-      </div>
-      <div class="info">
-        <strong>Crescer Saudável</strong>
-        <small>Engenharia e Paternidade</small>
-      </div>
-      <span class="arrow" aria-hidden="true">›</span>
-    </a>
+    <!-- Botão Expansível: Seta centrada para outros projetos -->
+    <button type="button" class="btn-toggle-more anim-link-4" id="toggleMoreProjects" aria-expanded="false" aria-controls="moreProjectsCollapse" aria-label="Mostrar ou ocultar outros projetos">
+      <svg class="toggle-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
 
-    <!-- 5º Card: Loja do Júlio (Último lugar) -->
-    <a class="link-btn anim-link-5" href="https://loja.juliocesar.pt" target="_blank" rel="noopener noreferrer" aria-label="Loja do Júlio — Pequenos luxos que encontro, abre em nova janela">
-      <div class="icon ic-loja" aria-hidden="true">
-        <img src="assets/loja%20do%20julio%20v2.png" width="24" height="24" alt="" loading="lazy" style="border-radius:4px; object-fit:contain;" onerror="this.outerHTML='🛍️'" />
-      </div>
-      <div class="info">
-        <strong>LOJA DO JULIO</strong>
-        <small style="color:#d4914a;">Pequenos luxos que encontro</small>
-      </div>
-      <span class="arrow" aria-hidden="true">›</span>
-    </a>
+    <!-- Grupo recolhido: Crescer Saudável & Loja do Júlio -->
+    <div id="moreProjectsCollapse" class="collapse-group" hidden>
+      <!-- Card: Crescer Saudável -->
+      <a class="link-btn" href="https://crescer-saudavel.pt" target="_blank" rel="noopener noreferrer" aria-label="Crescer Saudável — Engenharia e Paternidade, abre em nova janela">
+        <div class="icon ic-saudavel" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3" fill="#7bc67e"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#7bc67e" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="info">
+          <strong>Crescer Saudável</strong>
+          <small>Engenharia e Paternidade</small>
+        </div>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+
+      <!-- Card: Loja do Júlio -->
+      <a class="link-btn" href="https://loja.juliocesar.pt" target="_blank" rel="noopener noreferrer" aria-label="Loja do Júlio — Pequenos luxos que encontro, abre em nova janela">
+        <div class="icon ic-loja" aria-hidden="true">
+          <img src="assets/loja%20do%20julio%20v2.png" width="24" height="24" alt="" loading="lazy" style="border-radius:4px; object-fit:contain;" onerror="this.outerHTML='🛍️'" />
+        </div>
+        <div class="info">
+          <strong>LOJA DO JULIO</strong>
+          <small style="color:#d4914a;">Pequenos luxos que encontro</small>
+        </div>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+    </div>
 
     <!-- Secção Contacto -->
     <span class="link-group-label link-group-label--contact anim-label-2">Contacto</span>
@@ -967,6 +1029,25 @@ V0.005 — 2026-11-04 Exponor Eléctrica Edition
         closeModal();
       }
     });
+
+    // Toggle para outros projetos (Crescer Saudável & Loja do Júlio)
+    var toggleBtn = document.getElementById('toggleMoreProjects');
+    var collapseGroup = document.getElementById('moreProjectsCollapse');
+
+    if (toggleBtn && collapseGroup) {
+      toggleBtn.addEventListener('click', function() {
+        var isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        if (isExpanded) {
+          toggleBtn.setAttribute('aria-expanded', 'false');
+          toggleBtn.classList.remove('is-expanded');
+          collapseGroup.hidden = true;
+        } else {
+          toggleBtn.setAttribute('aria-expanded', 'true');
+          toggleBtn.classList.add('is-expanded');
+          collapseGroup.hidden = false;
+        }
+      });
+    }
   })();
 </script>
 </body>
